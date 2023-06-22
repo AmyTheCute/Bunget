@@ -7,16 +7,18 @@
 
 class ExpenseCategory;
 
+// Holds Transaction data, a transaction. (Expense/Income)
 class Transaction
 {
 public:
     Transaction(int amnt, std::string desc, ExpenseCategory &category);
     ~Transaction();
 
+//Commented out for debugging.
 // private:
     
     int amount;
-    std::string vendor;
+    // std::string vendor;
     std::string description;
     ExpenseCategory* category;
 

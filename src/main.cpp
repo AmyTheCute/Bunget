@@ -6,6 +6,7 @@
 
 int main(int argc, char const *argv[])
 {
+    // Comment out private members for this test. Get/Set not coded yet.
     TransactionCollection trans_col;
     ExpenseCategory food("Food");
     ExpenseCategory gros("Groceries");

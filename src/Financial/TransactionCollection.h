@@ -9,6 +9,7 @@
 
 class Transaction;
 
+// This class is used to store all the transactions currently in RAM
 class TransactionCollection
 {
 public:
@@ -18,7 +19,8 @@ public:
     // Add Transaction, use std::move()?
     void addTransaction(Transaction transaction);
 
-// private:
+private:
+
     // Vector of actual transaction objects
     std::vector<Transaction> transactions;
     

@@ -18,10 +18,10 @@ public:
     void addTransaction(Transaction &transaction);
 
 
-// private:
+private:
     std::string category;
-    int amount_goal;
-    int amount_current;
+    int amount_goal = 0;
+    int amount_current = 0;
     
     std::vector<Transaction *> transactions;
 };
