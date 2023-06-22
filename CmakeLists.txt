@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.1)
+
+project(bundget VERSION 1.0
+DESCRIPTION "Budget Bunny"
+LANGUAGES CXX)
+
+
+include_directories("${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/Financial")
+
+add_library(Transaction STATIC src/Financial/Transaction.cpp src/Financial/Transaction.h)
+add_library(TransactionCollection STATIC src/Financial/TransactionCollection.cpp src/Financial/TransactionCollection.h)
+add_library(ExpenseCategory STATIC src/Financial/ExpenseCategory.cpp src/Financial/ExpenseCategory.h)
+
+target_include_directories(Transaction PUBLIC include)
+target_include_directories(TransactionCollection PUBLIC include)
+target_include_directories(ExpenseCategory PUBLIC include)
+
+add_executable(app src/main.cpp)
+
+target_link_libraries(app PUBLIC Transaction)
+target_link_libraries(app PUBLIC TransactionCollection)
+target_link_libraries(app PUBLIC ExpenseCategory)
+
+target_compile_features(app PUBLIC cxx_std_17)
