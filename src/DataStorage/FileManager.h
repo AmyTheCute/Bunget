@@ -1,15 +1,15 @@
-#ifndef FILESAVER_H
-#define FILESAVER_H
+#ifndef FILEMANAGER_H
+#define FILEMANAGER_H
 
 #pragma once
 
 #include <iostream>
 
-class FileSaver
+class FileManager
 {
 public:
-    FileSaver();
-    ~FileSaver();
+    FileManager();
+    ~FileManager();
 
     void save();
     void read();

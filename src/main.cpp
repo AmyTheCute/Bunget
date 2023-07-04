@@ -1,10 +1,13 @@
 #include <iostream>
+
+#include "GUI/mainwindow.h"
+#include <QApplication>
+
 #include "Financial/TransactionCollection.h"
 #include "Financial/Transaction.h"
 #include "Financial/ExpenseCategory.h"
 
-
-int main(int argc, char const *argv[])
+int main(int argc, char *argv[])
 {
     // Comment out private members for this test. Get/Set not coded yet.
     TransactionCollection trans_col;
@@ -21,13 +24,12 @@ int main(int argc, char const *argv[])
     trans_col.addTransaction(thirdtrans);
     trans_col.addTransaction(foruthtrans);
 
-    for(const auto &i: gros.transactions) {
-       std::cout << "gros Desc: " << i->description << ". \n";
+    for (const auto &transa : gros.transactions) {
+        std::cout << "Transaction name: " << transa->description << "\n";
     }
 
-    for(const auto &i: food.transactions) {
-        std::cout << "food Category: " << i->description << ". \n";
-    }
-
-    return 0;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

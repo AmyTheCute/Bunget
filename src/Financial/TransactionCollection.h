@@ -17,12 +17,11 @@ public:
     ~TransactionCollection();
 
     // Add Transaction, use std::move()?
-    void addTransaction(Transaction transaction);
-
-private:
-
+    void addTransaction(const Transaction &transaction);
     // Vector of actual transaction objects
     std::vector<Transaction> transactions;
+
+
     
 };
 

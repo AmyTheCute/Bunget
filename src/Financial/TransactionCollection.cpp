@@ -10,11 +10,10 @@ TransactionCollection::~TransactionCollection()
 
 }
 
-void TransactionCollection::addTransaction(Transaction transaction)
+/// @brief 
+/// @param transaction 
+void TransactionCollection::addTransaction(const Transaction &transaction)
 {
     // Add transaction to stack.
     transactions.push_back(transaction);
-
-    // Create a refrence in the set Category for faster access 
-    transaction.category->addTransaction(transaction);
 }
