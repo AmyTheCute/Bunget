@@ -1,8 +1,5 @@
 #include <iostream>
 
-#include "GUI/mainwindow.h"
-#include <QApplication>
-
 #include "Financial/TransactionCollection.h"
 #include "Financial/Transaction.h"
 #include "Financial/ExpenseCategory.h"
@@ -27,9 +24,4 @@ int main(int argc, char *argv[])
     for (const auto &transa : gros.transactions) {
         std::cout << "Transaction name: " << transa->description << "\n";
     }
-
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
 }
