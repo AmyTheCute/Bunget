@@ -1,15 +1,14 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef PAGE_HOME_H
+#define PAGE_HOME_H
 
 #include <QMainWindow>
-// #include "Page_Home.h"
 #include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class MainWindow : public QMainWindow
+class PageHome : public QWidget
 {
     Q_OBJECT
 
@@ -18,6 +17,6 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    Ui::Page_Home *ui;
 };
 #endif // MAINWINDOW_H

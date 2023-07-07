@@ -8,18 +8,18 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_PREFIX_PATH "/Users/amyhaghighimood/Qt/6.4.2/macos/lib/cmake")
+set(CMAKE_PREFIX_PATH "/Users/amyhaghighimood/Qt/lib/cmake")
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets) 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
-set (CMAKE_CXX_STANDARD 20)
-set(PROJECT_SOURCES
-        src/main.cpp
-        src/GUI/mainwindow.cpp
-        src/GUI/mainwindow.ui
-        src/GUI/mainwindow.h
+file(GLOB PROJECT_SOURCES
+     "src/GUI/*.h"
+     "src/GUI/*.cpp"
+     "src/GUI/*.ui"
 )
+
+set (CMAKE_CXX_STANDARD 20)
 
 
 add_subdirectory(src/Financial)
