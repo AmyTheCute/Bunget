@@ -10,21 +10,32 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_PREFIX_PATH "/Users/amyhaghighimood/Qt/lib/cmake")
 
+#Find Qt Packages
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets) 
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
-
-file(GLOB PROJECT_SOURCES
-     "src/GUI/*.h"
-     "src/GUI/*.cpp"
-     "src/GUI/*.ui"
-)
+find_package(Qt6 REQUIRED COMPONENTS Gui)
 
 set (CMAKE_CXX_STANDARD 20)
+set(PROJECT_SOURCES
+        src/main.cpp
+        src/GUI/mainwindow.cpp
+        src/GUI/mainwindow.ui
+        src/GUI/mainwindow.h
+        src/GUI/Page_Home.cpp
+        src/GUI/Page_Home.ui
+        src/GUI/Page_Home.h
+        src/GUI/Page_Expenses.cpp
+        src/GUI/Page_Expenses.ui
+        src/GUI/Page_Expenses.h
 
-
-add_subdirectory(src/Financial)
+)
 
 add_executable(Bunget ${PROJECT_SOURCES})
 
-target_link_libraries(Bunget PUBLIC Financial)
+# Link Qt required libs
 target_link_libraries(Bunget PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(Bunget PRIVATE Qt6::Gui)
+
+#Link our libraries
+add_subdirectory(src/Financial)
+target_link_libraries(Bunget PUBLIC Financial)

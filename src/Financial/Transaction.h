@@ -3,7 +3,6 @@
 
 #pragma once
 #include <iostream>
-#include "ExpenseCategory.h"
 
 class ExpenseCategory;
 
@@ -11,7 +10,7 @@ class ExpenseCategory;
 class Transaction
 {
 public:
-    Transaction(int amnt, std::string desc, ExpenseCategory &category);
+    Transaction(int amnt, std::string desc);
     ~Transaction();
     int amount;
     

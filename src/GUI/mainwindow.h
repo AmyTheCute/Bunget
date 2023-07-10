@@ -2,8 +2,13 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-// #include "Page_Home.h"
+#include "Page_Home.h"
+#include "Page_Expenses.h"
+
+#include "../Financial/FinancialManager.h"
+
 #include <iostream>
+#include <memory>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
