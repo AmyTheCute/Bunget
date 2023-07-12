@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <iostream>
-#include <QStandardItemModel>
+#include "TransactionItemModel.h"
 #include "../Financial/FinancialManager.h"
 
 QT_BEGIN_NAMESPACE
@@ -15,15 +15,15 @@ class PageExpenses : public QWidget
     Q_OBJECT
 
 public:
-    PageExpenses(FinancialManager* finMan, QWidget *parent = nullptr);
+    PageExpenses(std::shared_ptr<FinancialManager> finMan, QWidget *parent = nullptr);
     ~PageExpenses();
 
     void addTransaction();
     QStandardItemModel* model;
 
 private:
-
+    QStandardItemModel * transactions_model;
     Ui::PageExpenses *ui;
-    FinancialManager* financialManager;
+    std::shared_ptr<FinancialManager> financialManager;
 };
 #endif // MAINWINDOW_H

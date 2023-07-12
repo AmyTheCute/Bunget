@@ -4,8 +4,6 @@
 #pragma once
 #include <iostream>
 
-class ExpenseCategory;
-
 // Holds Transaction data, a transaction. (Expense/Income)
 class Transaction
 {
@@ -16,7 +14,6 @@ public:
     
     // std::string vendor; commented out for debugging.
     std::string description;
-    ExpenseCategory* category;
 
 
 private:

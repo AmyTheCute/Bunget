@@ -10,42 +10,45 @@
 int main(int argc, char *argv[])
 {
     // // Comment out private members for this test. Get/Set not coded yet.
-    // TransactionCollection trans_col;
-    // ExpenseCategory food("Food");
-    // ExpenseCategory gros("Groceries");
 
-    // Transaction newtrans(100, "BunnyJuice", food);
-    // Transaction sectrans(200, "Meh I ahasdf", gros);
-    // Transaction thirdtrans(100, "sushi", food);
-    // Transaction foruthtrans(100, "BunnyPellter", gros);
+    FinancialManager finman;
+    finman.addCategory("bunny");
+    finman.addCategory("cat");
+    finman.addCategory("deer");
 
-    // trans_col.addTransaction(newtrans);
-    // trans_col.addTransaction(sectrans);
-    // trans_col.addTransaction(thirdtrans);
-    // trans_col.addTransaction(foruthtrans);
+    Transaction bunnypillow(101, "Bunny Pillow");
+    Transaction catpillow(202, "Cat Pillow");
+    Transaction sushiforcat(103, "sushi");
+    Transaction bunnyfood(104, "Bunny pellets");
+    Transaction catpell(105, "cat Pellts");
+    Transaction catmilk(50, "Milk");
 
-    // for (const auto &transa : gros.transactions) {
-    //     std::cout << "Transaction name: " << transa->description << "\n";
-    // }
+    finman.addTransaction(bunnypillow, "bunny");
+    finman.addTransaction(bunnyfood, "bunny");
 
-    // std::map<std::string, std::vector<std::string>> mymap;
+    finman.addTransaction(catpillow, "cat");
+    finman.addTransaction(sushiforcat, "cat");
+    finman.addTransaction(catmilk, "cat");
 
-    // mymap["bunny"].push_back("cuteindeed");
 
-    // if(mymap.find("cat") != mymap.end()) {
-    //     std::cout << "cat exists! " << "\n";
-    // } else {
-    //     std::cout << "no cat " << "\n";
-    // }
+    auto catTrans = finman.getCategory("cat");
+    auto bunTrans = finman.getCategory("bunny");
 
-    // if(mymap.find("bunny") != mymap.end()) {
-    //     std::cout << "bunny exists! " << "\n";
-    // } else {
-    //     std::cout << "no bunny " << "\n";
-    // }
+    std::cout << "cat transactions:\n";
+    for(auto i : catTrans) {
+        std::cout << "Desc: " << i->description << " Amount: " << i->amount << "\n";
+        
+    }
 
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    std::cout << "bunny transactions:\n";
+    for(auto i : bunTrans) {
+        std::cout << i->description << "\n";
+    }
+
+    return 0;
+
+    // QApplication a(argc, argv);
+    // MainWindow w;
+    // w.show();
+    // return a.exec();
 }

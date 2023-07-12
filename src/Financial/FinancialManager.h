@@ -28,6 +28,11 @@ public:
 
     bool categoryExists(string name);
 
+    vector<Transaction*> getCategory(string category);
+    vector<Transaction*> getCategory(string category, string month);
+    
+
+// private:
     // Vector of actual transaction objects
     vector<Transaction> transactions;
     map<string, vector<Transaction *>> categories;

@@ -34,3 +34,15 @@ size_t FinancialManager::numTransactions()
 {
     return transactions.size();
 }
+
+
+vector<Transaction *> FinancialManager::getCategory(string category)
+{
+    //TODO Check if category exists
+    return categories[category];
+}
+
+// vector<Transaction *> FinancialManager::getCategory(string category, string month)
+// {
+//     return vector<Transaction *>();
+// }
