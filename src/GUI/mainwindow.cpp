@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     std::shared_ptr<FinancialManager> financialManager = std::make_shared<FinancialManager>();
     financialManager->addCategory("bunny");
     financialManager->addCategory("cat");
+    financialManager->addCategory("deer");
     Transaction trans(100, "bunnyJuice");
     Transaction cat(100, "catJuice");
     financialManager->addTransaction(trans, "bunny");

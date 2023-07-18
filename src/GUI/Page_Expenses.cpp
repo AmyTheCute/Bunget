@@ -8,10 +8,10 @@ PageExpenses::PageExpenses(std::shared_ptr<FinancialManager> finMan, QWidget *pa
 {
     ui->setupUi(this);
 
+    // Setup Widgets
+    updateCategories();
 
-    ui->lineEdit_amount->setValidator( new QIntValidator(0, 9999999, this) );
-
-    connect(ui->btn_addTransaction, &QPushButton::released, this, &PageExpenses::addTransaction);
+    // Setup TableWidget
 }
 
 PageExpenses::~PageExpenses()
@@ -26,4 +26,22 @@ void PageExpenses::addTransaction()
     
     Transaction transa(amount, desc);
     financialManager->addTransaction(transa, "cat");
+}
+
+void PageExpenses::updateCategories()
+{
+    QStringList categoryOptions;
+    for(const auto &cat : financialManager->getCategories()) {
+        categoryOptions << QString::fromStdString(cat);
+    }
+    ui->options_category->addItems(categoryOptions);
+}
+void PageExpenses::updateTableWidget()
+{
+    ui->transactionTable->setRowCount(financialManager->numTransactions());
+    ui->transactionTable->setColumnCount(5); // TODO make DEFINE or something for the num variables
+
+    for(auto i : financialManager.getCategory("")){
+        
+    }
 }

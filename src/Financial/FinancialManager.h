@@ -13,7 +13,7 @@ class ExpenseCategory;
 
 using std::vector, std::map, std::string;
 
-// This class is used to store all the transactions currently in RAM
+// Stores and manages transaction data and categories.
 class FinancialManager
 {
 public:
@@ -24,18 +24,22 @@ public:
     void addTransaction(const Transaction &transaction, string category);
     void addCategory(string category);
 
+    // returns the number of transactions currently stored in the RAM
     size_t numTransactions();
+
+    // Returns a vector of strings of categories.
+    vector<string> getCategories() { return categoryNames; }
 
     bool categoryExists(string name);
 
-    vector<Transaction*> getCategory(string category);
-    vector<Transaction*> getCategory(string category, string month);
+    // Returns transaction pointer vector of all transactions in the categor
+    vector<Transaction>* getCategory(string category);
+    vector<Transaction>* getCategory(string category, string month);
     
 
-// private:
+private:
     // Vector of actual transaction objects
-    vector<Transaction> transactions;
-    map<string, vector<Transaction *>> categories;
+    map<string, vector<Transaction>> transactions;
     vector<string> categoryNames;
 
 

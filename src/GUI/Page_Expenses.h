@@ -19,7 +19,9 @@ public:
     ~PageExpenses();
 
     void addTransaction();
-    QStandardItemModel* model;
+    void update();
+    void updateCategories();
+    void updateTableWidget();
 
 private:
     QStandardItemModel * transactions_model;
